@@ -14,6 +14,7 @@ import Brands from "./pages/Brands";
 import TradeExecution from "./pages/TradeExecution";
 import Logistics from "./pages/Logistics";
 import Contact from "./pages/Contact";
+import Flyers from "./pages/Flyers";
 
 // Scroll to top on route change
 const ScrollToTop = () => {
@@ -39,6 +40,7 @@ function App() {
             <Route path="/trade" element={<TradeExecution />} />
             <Route path="/logistics" element={<Logistics />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/flyers" element={<Flyers />} />
           </Routes>
         </main>
         <Footer />

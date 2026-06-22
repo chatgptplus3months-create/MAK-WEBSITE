@@ -1,6 +1,50 @@
 backend:
   name: git-gateway
-  branch: main
+  branch: main          # change to "master" if your repo uses that
 
-media_folder: "public/uploads"
-public_folder: "/uploads"
+# Where uploaded images are saved in the repo
+media_folder: "public/uploads/flyers"
+# The public URL path that maps to the above folder
+public_folder: "/uploads/flyers"
+
+collections:
+  - label: "Flyers"
+    name: "flyers"
+    files:
+      - label: "Flyer List"
+        name: "flyer-list"
+        file: "public/data/flyers.json"
+        fields:
+          - label: "Flyers"
+            name: "flyers"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - label: "Title"
+                name: "title"
+                widget: "string"
+                hint: "e.g. Ramadan Offer – Bodhini Rice"
+
+              - label: "Image"
+                name: "image"
+                widget: "image"
+                hint: "Upload the flyer image (JPG or PNG recommended)"
+
+              - label: "Description"
+                name: "description"
+                widget: "text"
+                required: false
+                hint: "Optional short description shown below the flyer"
+
+              - label: "Display Order"
+                name: "order"
+                widget: "number"
+                value_type: "int"
+                default: 1
+                hint: "Lower number = appears first"
+
+              - label: "Visible"
+                name: "visible"
+                widget: "boolean"
+                default: true
+                hint: "Uncheck to hide this flyer without deleting it"
